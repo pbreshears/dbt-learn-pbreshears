@@ -5,4 +5,4 @@ select
     status,
     to_decimal(amount/100, 2, 0) as amount, -- change cents to dollars
     created as created_at
-from raw.stripe.payment
+from {{ source('stripe','payment') }}
